@@ -1,0 +1,435 @@
+/* ==========================================================================
+   1. FONTS & ROOT DESIGN SYSTEM (Pink, White, Gold)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --bg-light-pink: #FFF0F2;
+    --card-pink-accent: #FCE4E7;
+    --theme-dark-pink: #F4C2C9;
+    --elegant-gold: #D4AF37;
+    --text-charcoal: #4A3E3F;
+    --pure-white: #FFFFFF;
+    --font-serif-heading: 'Playfair Display', serif;
+    --font-sans-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans-body);
+    color: var(--text-charcoal);
+    background-color: var(--bg-light-pink);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. HEADER, NAVIGATION & CONSISTENCY
+   ========================================================================== */
+header {
+    background-color: var(--pure-white);
+    box-shadow: 0 2px 15px rgba(244, 194, 201, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo h1 {
+    font-family: var(--font-serif-heading);
+    color: var(--elegant-gold);
+    font-size: 30px;
+    letter-spacing: 0.5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-charcoal);
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+nav ul li a:hover, 
+nav ul li a.active {
+    color: var(--elegant-gold);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--elegant-gold);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. SEMANTIC MAIN STRUCTURAL LAYOUT
+   ========================================================================== */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    min-height: 70vh;
+}
+
+.section-title {
+    text-align: center;
+    font-family: var(--font-serif-heading);
+    font-size: 38px;
+    color: var(--text-charcoal);
+    margin-bottom: 40px;
+}
+
+.section-title::after {
+    content: '✨';
+    display: block;
+    font-size: 16px;
+    color: var(--elegant-gold);
+    margin-top: 5px;
+}
+
+/* ==========================================================================
+   4. HERO BANNER
+   ========================================================================== */
+.hero {
+    background: linear-gradient(rgba(255, 240, 242, 0.8), rgba(255, 240, 242, 0.5)), 
+                url('Images/Ragdoll cat.png') no-repeat center center/cover;
+    border-radius: 20px;
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.hero-content h2 {
+    font-family: var(--font-serif-heading);
+    font-size: 52px;
+    color: var(--text-charcoal);
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* ROUNDED CORNER BUTTONS */
+.btn-rounded {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: var(--theme-dark-pink);
+    color: var(--pure-white);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.btn-rounded:hover {
+    background-color: var(--pure-white);
+    color: var(--theme-dark-pink);
+    border-color: var(--theme-dark-pink);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(244, 194, 201, 0.4);
+}
+
+/* ==========================================================================
+   5. FLEXIBLE GRIDS & PREMIUM CARD STYLING
+   ========================================================================== */
+.grid-3-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.grid-4-col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background-color: var(--pure-white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(244, 194, 201, 0.4);
+}
+
+.product-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.03);
+}
+
+.product-card-body {
+    padding: 22px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-card-body h3 {
+    font-family: var(--font-serif-heading);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.product-card-body p {
+    font-size: 14px;
+    color: #6a5b5c;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.product-card-body .price {
+    font-weight: 600;
+    color: var(--elegant-gold);
+    font-size: 18px;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   6. ABOUT US BRAND ELEMENTS
+   ========================================================================== */
+.story-wrapper {
+    background-color: var(--pure-white);
+    padding: 45px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+}
+
+.story-wrapper p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.mvv-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.mvv-card {
+    background-color: var(--card-pink-accent);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(244, 194, 201, 0.5);
+}
+
+.mvv-card i {
+    font-size: 28px;
+    color: var(--elegant-gold);
+    margin-bottom: 15px;
+}
+
+.mvv-card h3 {
+    font-family: var(--font-serif-heading);
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.mvv-card ul {
+    list-style-type: none;
+    text-align: left;
+    display: inline-block;
+}
+
+.mvv-card ul li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.mvv-card ul li::before {
+    content: '🌸 ';
+    font-size: 11px;
+}
+
+/* ==========================================================================
+   7. CONTACT US ELEMENTS
+   ========================================================================== */
+.contact-split-view {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.form-card, .map-card {
+    background-color: var(--pure-white);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+}
+
+.input-container {
+    margin-bottom: 22px;
+}
+
+.input-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.input-container input, .input-container textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--theme-dark-pink);
+    border-radius: 10px;
+    font-family: var(--font-sans-body);
+    font-size: 14px;
+    background-color: var(--bg-light-pink);
+    transition: all 0.3s ease;
+}
+
+.input-container input:focus, .input-container textarea:focus {
+    outline: none;
+    border-color: var(--elegant-gold);
+    background-color: var(--pure-white);
+    box-shadow: 0 0 8px rgba(212, 175, 231, 0.2);
+}
+
+.map-wrapper {
+    width: 100%;
+    height: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 15px;
+    border: 1px solid var(--theme-dark-pink);
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ==========================================================================
+   8. FOOTER STYLING
+   ========================================================================== */
+footer {
+    background-color: var(--theme-dark-pink);
+    color: var(--pure-white);
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-inner p {
+    margin-bottom: 12px;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+}
+
+.footer-inner a {
+    color: var(--pure-white);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px dotted var(--pure-white);
+    transition: color 0.3s;
+}
+
+.footer-inner a:hover {
+    color: var(--elegant-gold);
+    border-bottom-color: var(--elegant-gold);
+}
+
+.social-strip {
+    margin-top: 20px;
+}
+
+.social-strip a {
+    color: var(--pure-white);
+    font-size: 26px;
+    margin: 0 12px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    border: none;
+}
+
+.social-strip a:hover {
+    color: var(--elegant-gold);
+    transform: scale(1.2);
+}
+
+/* ==========================================================================
+   9. RESPONSIVE RENDER SYSTEM
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .grid-4-col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-3-col, .mvv-layout {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .grid-3-col, .grid-4-col, .mvv-layout, .contact-split-view {
+        grid-template-columns: 1fr;
+    }
+    .hero-content h2 {
+        font-size: 38px;
+    }
+}
